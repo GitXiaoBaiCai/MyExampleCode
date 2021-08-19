@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:"
+      name = "Learning">
+      <FileRef
+         location = "group:8686&#x6c47;&#x7f16;.rtf">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:MyCode.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>

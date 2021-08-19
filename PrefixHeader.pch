@@ -1,0 +1,205 @@
+//
+//  PrefixHeader.pch
+//  MyCode
+//
+//  Created by mac on 2019/6/14.
+//  Copyright © 2019 mycode. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+// 系统框架
+#import <UserNotifications/UserNotifications.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <AVFoundation/AVMediaFormat.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <CommonCrypto/CommonDigest.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AddressBook/AddressBook.h>
+#import <Accelerate/Accelerate.h>
+#import <Foundation/Foundation.h>
+#import <MessageUI/MessageUI.h>
+#import <StoreKit/StoreKit.h>
+#import <Contacts/Contacts.h>
+#import <Photos/Photos.h>
+#import <WebKit/WebKit.h>
+#import <malloc/malloc.h>
+#import <objc/runtime.h>
+#import <UIKit/UIKit.h>
+#import <AVKit/AVKit.h>
+#import "sys/utsname.h"
+
+#import "ImportHeader.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+
+
+
+
+#pragma mark => 控件
+
+// UIView
+// UILabel
+// UIButton
+// UITextField
+// UIImageView
+// UITextView
+// UIScrollView
+// UITableView
+// UICollectionView
+// UISlider
+// UISwitch
+// WKWebview
+// UIAlert
+
+#pragma mark => OC类
+
+//  @"NSString
+//  @"NSArray
+//  @"NSDictionary
+//  @"NSBundle
+//  @"NSCoder
+//  @"NSData
+//  @"NSDate
+//  @"NSError
+//  @"NSException
+//  @"NSFormatter
+//  @"NSIndexPath
+//  @"NSIndexSet
+//  @"NSJSONSerialization
+//  @"NSLock
+//  @"NSMetadataAttributes  // 富文本属性值常量
+//  @"NSNotification
+//  @"NSObjCRuntime
+//  @"NSOrderedSet
+//  @"NSPort
+//  @"NSProgress
+//  @"NSRange
+//  @"NSRegularExpression   // 正则
+//  @"NSRunLoop
+//  @"NSScanner             // 日历
+//  @"NSSet                 // 集合
+//  @"NSSortDescriptor      // 指定方式排序
+//  @"NSStream              // 流
+//  @"NSTimer
+//  @"NSTimeZone            // 时区
+//  @"NSURL...
+//  @"NSUserDefaults
+//  @"NSUUID
+//  @"NSValue,NSNumber
+//  @"NSValueTransformer
+//  @"NSXMLParser
+//  @"NSFileManager
+
+
+
+/*
+ 
+ 文档整理-1：基本UI控件，及类别扩展(上方)-2：各种常用的数据类型使用
+ 3：多线程（NSThred，GCD，NSOperation）
+ 4：数据存储
+ 4：音视频播放
+ 5：Core库(图形，动画等)
+ 6：系统硬件功能的使用(推送，相机，相册，蓝牙，wifi，nfc，重力感应，定位，录音，手势等)
+ 7：第三方常用框架(AFNetworking、Masonry、SDWebImage、MJRefresh、YYKit、SDCycleScrollView、FMDB、MJExtension)
+ 
+*/
+
+
+
+/*
+ 多线程（NSThred，GCD，NSOperation）
+ 
+*/
+
+
+
+
+/* lldb 调试命令
+ expression // 后面可以跟上代码 等同于 p
+ expression -O -- self // 可以打印内容 等同于 po(缩写)
+ thread backtrace  // 查看调用堆栈
+ 
+ */
+
+
+/*
+ 1B  = 8bit
+ 1KB = 1024B(Byte)
+ 1M  = 1024KB
+ 1G  = 1024MB
+ 1TB = 1024GB
+ 
+ 数字后面带H，表示是16进制
+ 汇编不区分大小写
+ 8086 CPU内部是16位的，地址总线是16位的
+ 为了能输出20位的数据 使用 （ 段地址*16+偏移地址 ）
+
+地址合成
+ 段地址：1200H  偏移地址：1000H
+ 物理地址 = 段地址 x 16 + 偏移地址   (10进制)
+ 物理地址 = 段地址 x 10H + 偏移地址  (16进制)
+ 物理地址 = 1200H x 10H + 1000H = 12000H + 1000H = 13000H
+ 
+ 
+ 寄存器
+ 
+ bite // 一位
+ byte // 一个字节
+ word // 两个字节
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
