@@ -9,6 +9,7 @@
 #import "ImageViewVC.h"
 #import "TestModel.h"
 @interface ImageViewVC ()
+@property(nonatomic, strong) UIImageView *imageview;
 
 @end
 
@@ -17,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    ChainModel *objc1 = [ChainModel new];
+//    ChainModel *objc1 = [ChainModel new];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         for (int i=0; i<1000; i++) {

@@ -26,7 +26,7 @@
 
  
     
-    UIDynamicItemGroup *group;
+   // UIDynamicItemGroup *group;
     
     
     

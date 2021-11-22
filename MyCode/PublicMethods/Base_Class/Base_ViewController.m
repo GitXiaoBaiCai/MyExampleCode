@@ -39,7 +39,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = color_white;
 //    self.automaticallyAdjustsScrollViewInsets = NO;
-
+    
 }
 
 //    self.navigationController.navigationBar.hidden = YES;

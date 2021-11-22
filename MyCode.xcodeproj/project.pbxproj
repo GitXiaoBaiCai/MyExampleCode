@@ -120,8 +120,6 @@
 		886A27D0266E037B00963D3F /* shj_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 886A27B8266E037B00963D3F /* shj_167.png */; };
 		886A27D1266E037B00963D3F /* shj_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 886A27B9266E037B00963D3F /* shj_76.png */; };
 		886A27EF266E078800963D3F /* UIViewController+Pop.m in Sources */ = {isa = PBXBuildFile; fileRef = 886A27EE266E078800963D3F /* UIViewController+Pop.m */; };
-		886F35AD25EE244E00A5B8CB /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 886F35AC25EE244E00A5B8CB /* NotificationService.m */; };
-		886F35B125EE244E00A5B8CB /* Scrver.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 886F35A925EE244E00A5B8CB /* Scrver.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		887AFABD2696DF8300A92084 /* SQL_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 887AFABC2696DF8300A92084 /* SQL_VC.m */; };
 		889C1A6B26AFB82200032987 /* Block_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C1A6A26AFB82200032987 /* Block_VC.m */; };
 		88A4A99F25C7E23000C03683 /* ProjectFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A4A99E25C7E23000C03683 /* ProjectFont.m */; };
@@ -154,13 +152,6 @@
 			remoteGlobalIDString = 40C8B52722B226D700366F6F;
 			remoteInfo = MyCode;
 		};
-		886F35AF25EE244E00A5B8CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 40C8B52022B226D700366F6F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 886F35A825EE244E00A5B8CB;
-			remoteInfo = Scrver;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -170,7 +161,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				886F35B125EE244E00A5B8CB /* Scrver.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +276,6 @@
 		881C27AF25CA956000A58FDA /* AlertVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertVC.h; sourceTree = "<group>"; };
 		881C27B025CA956000A58FDA /* AlertVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertVC.m; sourceTree = "<group>"; };
 		883D98742668BAB700553746 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
-		884C87C926896A4D000ABDE8 /* word.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = word.txt; sourceTree = "<group>"; };
 		88520C7B2591D95A00AE38FE /* MyCode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyCode.entitlements; sourceTree = "<group>"; };
 		885601AA26789D3C00EF5C9B /* CallOC.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CallOC.html; sourceTree = "<group>"; };
 		88571E7C25E5F0700011C409 /* NSStringVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringVC.h; sourceTree = "<group>"; };
@@ -393,10 +382,6 @@
 		886A27EE266E078800963D3F /* UIViewController+Pop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Pop.m"; sourceTree = "<group>"; };
 		886F357725EDEABC00A5B8CB /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		886F357925EDEABC00A5B8CB /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
-		886F35A925EE244E00A5B8CB /* Scrver.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Scrver.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		886F35AB25EE244E00A5B8CB /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
-		886F35AC25EE244E00A5B8CB /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
-		886F35AE25EE244E00A5B8CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		887901CE269E867B0060DBAE /* java_小码哥.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "java_小码哥.h"; sourceTree = "<group>"; };
 		887AFABB2696DF8300A92084 /* SQL_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQL_VC.h; sourceTree = "<group>"; };
 		887AFABC2696DF8300A92084 /* SQL_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQL_VC.m; sourceTree = "<group>"; };
@@ -458,13 +443,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		886F35A625EE244E00A5B8CB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -481,14 +459,12 @@
 			isa = PBXGroup;
 			children = (
 				88655459269FD8360053F814 /* README.md */,
-				884C87C926896A4D000ABDE8 /* word.txt */,
 				885601AA26789D3C00EF5C9B /* CallOC.html */,
 				40AC450722B343030076E0D0 /* PrefixHeader.pch */,
 				40C8B52A22B226D700366F6F /* MyCode */,
 				881A1A3A269C1EE60024469B /* ThirdPartySDK */,
 				40C8B54322B226D800366F6F /* MyCodeTests */,
 				40C8B54E22B226D800366F6F /* MyCodeUITests */,
-				886F35AA25EE244E00A5B8CB /* Scrver */,
 				40C8B52922B226D700366F6F /* Products */,
 				56FFB0BD9CBDF9B47EBD2DA2 /* Pods */,
 				926D84F7DAEDCF8CCF8DF38F /* Frameworks */,
@@ -501,7 +477,6 @@
 				40C8B52822B226D700366F6F /* MyCode.app */,
 				40C8B54022B226D800366F6F /* MyCodeTests.xctest */,
 				40C8B54B22B226D800366F6F /* MyCodeUITests.xctest */,
-				886F35A925EE244E00A5B8CB /* Scrver.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -815,16 +790,6 @@
 			path = shj_icon;
 			sourceTree = "<group>";
 		};
-		886F35AA25EE244E00A5B8CB /* Scrver */ = {
-			isa = PBXGroup;
-			children = (
-				886F35AB25EE244E00A5B8CB /* NotificationService.h */,
-				886F35AC25EE244E00A5B8CB /* NotificationService.m */,
-				886F35AE25EE244E00A5B8CB /* Info.plist */,
-			);
-			path = Scrver;
-			sourceTree = "<group>";
-		};
 		88755AEA25C8F4CE0015EC2D /* UI_Sample */ = {
 			isa = PBXGroup;
 			children = (
@@ -968,7 +933,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				886F35B025EE244E00A5B8CB /* PBXTargetDependency */,
 			);
 			name = MyCode;
 			productName = MyCode;
@@ -1013,23 +977,6 @@
 			productReference = 40C8B54B22B226D800366F6F /* MyCodeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		886F35A825EE244E00A5B8CB /* Scrver */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 886F35B225EE244E00A5B8CB /* Build configuration list for PBXNativeTarget "Scrver" */;
-			buildPhases = (
-				886F35A525EE244E00A5B8CB /* Sources */,
-				886F35A625EE244E00A5B8CB /* Frameworks */,
-				886F35A725EE244E00A5B8CB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Scrver;
-			productName = Scrver;
-			productReference = 886F35A925EE244E00A5B8CB /* Scrver.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1039,7 +986,7 @@
 				KnownAssetTags = (
 					New,
 				);
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = mycode;
 				TargetAttributes = {
 					40C8B52722B226D700366F6F = {
@@ -1052,9 +999,6 @@
 					40C8B54A22B226D800366F6F = {
 						CreatedOnToolsVersion = 10.2.1;
 						TestTargetID = 40C8B52722B226D700366F6F;
-					};
-					886F35A825EE244E00A5B8CB = {
-						CreatedOnToolsVersion = 12.1;
 					};
 				};
 			};
@@ -1074,7 +1018,6 @@
 				40C8B52722B226D700366F6F /* MyCode */,
 				40C8B53F22B226D800366F6F /* MyCodeTests */,
 				40C8B54A22B226D800366F6F /* MyCodeUITests */,
-				886F35A825EE244E00A5B8CB /* Scrver */,
 			);
 		};
 /* End PBXProject section */
@@ -1125,13 +1068,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		40C8B54922B226D800366F6F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		886F35A725EE244E00A5B8CB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1343,14 +1279,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		886F35A525EE244E00A5B8CB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				886F35AD25EE244E00A5B8CB /* NotificationService.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1363,11 +1291,6 @@
 			isa = PBXTargetDependency;
 			target = 40C8B52722B226D700366F6F /* MyCode */;
 			targetProxy = 40C8B54C22B226D800366F6F /* PBXContainerItemProxy */;
-		};
-		886F35B025EE244E00A5B8CB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 886F35A825EE244E00A5B8CB /* Scrver */;
-			targetProxy = 886F35AF25EE244E00A5B8CB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1443,7 +1366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1497,7 +1420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1517,7 +1440,7 @@
 				DEVELOPMENT_TEAM = 2SAW45736M;
 				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/MyCode/SystemFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1546,7 +1469,7 @@
 				DEVELOPMENT_TEAM = 2SAW45736M;
 				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/MyCode/SystemFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1637,44 +1560,6 @@
 			};
 			name = Release;
 		};
-		886F35B325EE244E00A5B8CB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Scrver/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.self.MyCode.Scrver;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		886F35B425EE244E00A5B8CB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Scrver/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.self.MyCode.Scrver;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1710,15 +1595,6 @@
 			buildConfigurations = (
 				40C8B55B22B226D800366F6F /* Debug */,
 				40C8B55C22B226D800366F6F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		886F35B225EE244E00A5B8CB /* Build configuration list for PBXNativeTarget "Scrver" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				886F35B325EE244E00A5B8CB /* Debug */,
-				886F35B425EE244E00A5B8CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

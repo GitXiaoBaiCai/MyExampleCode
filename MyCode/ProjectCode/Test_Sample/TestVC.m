@@ -21,6 +21,10 @@
 #import <arpa/inet.h>
 #import <ifaddrs.h>
 #import <netdb.h>
+#import <SafariServices/SFSafariViewController.h>
+
+#import <AdSupport/AdSupport.h>
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
 
 int a4 = 10;
 int a5;
@@ -63,7 +67,7 @@ typedef void(^TestBlock)(NSString *string);
         // Fallback on earlier versions
     }
 
-
+    
     NSArray *functionName = @[@"测试1",
                               @"测试2",
                               @"测试3",
@@ -107,10 +111,9 @@ typedef void(^TestBlock)(NSString *string);
 //    NSProxy * proxy;
     
     
+ 
     
-   
-    
-    [self baseView];
+//    [self baseView];
     
     
 }
@@ -120,19 +123,19 @@ typedef void(^TestBlock)(NSString *string);
     if (!_baseView) {
         _baseView = [[TestView alloc]init];
         _baseView.backgroundColor = color_random;
-        _baseView.frame = CGRectMake(100, 400, 260, 160);
+//        _baseView.frame = CGRectMake(100, 400, 260, 160);
         [self.view addSubview:_baseView];
-//        _baseView.translatesAutoresizingMaskIntoConstraints = NO;
-//
-//        NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:_baseView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:200];
-//        NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:_baseView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:100];
-//        [_baseView addConstraints:@[width,height]];
-//
-//        NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:_baseView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
-//
-//        NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:_baseView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
-//
-//        [self.view addConstraints:@[centerX,centerY]];
+        _baseView.translatesAutoresizingMaskIntoConstraints = NO;
+
+        NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:_baseView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:200];
+        NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:_baseView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:100];
+        [_baseView addConstraints:@[width,height]];
+
+        NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:_baseView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
+
+        NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:_baseView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
+
+        [self.view addConstraints:@[centerX,centerY]];
                 
         
         // VFL抽象语言编写 LayoutConstraint
@@ -180,40 +183,25 @@ typedef void(^TestBlock)(NSString *string);
             
         } break;
             
+         case 2: {
+           
+             TestPerson *tp = [[TestPerson alloc] init];
+             NSLog(@"%p", tp);
+             NSLog(@"%p", &tp);
             
-        case 2: //{
-            
-//            SCNetworkReachabilityRef networkReachability;
-//            struct sockaddr_in address;
-//
-//            NSLog(@"%ld",sizeof(address));
-//
-//            bzero(&address, sizeof(address));
-//            address.sin_len = sizeof(address);
-//            address.sin_family = AF_INET;
-//
-//            const struct sockaddr *addr = (const struct sockaddr *)&address;
-//
-//
-//            SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault,addr);
-//
-//
-//
-//            NSLog(@"hahah");
-            
-//            [_baseView removeFromSuperview];
-//
-//            NSLog(@"%@",_baseView);
-//
-//        } break;
+        } break;
             
             
         case 3:{
             
 //            [self.view addSubview:_baseView];
-            NSLog(@"case3也执行了");
+            
+            NSString *qqUrl = @"mqqwpa://im/chat?chat_type=wpa&uin=1564439703";
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:qqUrl] options:@{UIApplicationOpenURLOptionUniversalLinksOnly:@0} completionHandler:^(BOOL success) { }];
             
    
+            
+            
 //            int a = 10;
 //            int b = 20;
 //            int c = 30;
@@ -226,6 +214,7 @@ typedef void(^TestBlock)(NSString *string);
 //
 //            memset(p,0,4);
 
+        
             
             
         } break;
@@ -233,15 +222,50 @@ typedef void(^TestBlock)(NSString *string);
                        
         case 4:{
             
-            [TestModel mj_enumerateProperties:^(MJProperty *property, BOOL *stop) {
-                
-            }];
+            NSLog(@"%@",self.idfa);
             
+            
+            
+//            [TestModel mj_enumerateProperties:^(MJProperty *property, BOOL *stop) {
+//
+//            }];
+//            Class classVC = NSClassFromString(@"NSStringVC");
+//            UIViewController *vc = [(UIViewController*)[classVC alloc] init];
+//            vc.title = @"哈哈哈";
+//            [self.navigationController pushViewController:vc animated:YES];
+            
+//            [self dynamicSetAlternateIconName];
+            
+        } break;
+            
+        case 5: {
+//            NSString *filePath = [[NSBundle mainBundle] pathForResource:@"wmsj" ofType:@"txt"];
+            NSURL *pathURL = [NSURL URLWithString:@"https://www.alimama.com/index.htm"];
+            SFSafariViewController *safariView = [[SFSafariViewController alloc]initWithURL:pathURL];
+            [self.navigationController pushViewController:safariView animated:YES];
         }
             
         default:
             break;
     }
+}
+
+
+- (NSString*)idfa {
+    __block NSString *idfa = @"";
+    ASIdentifierManager *manager = [ASIdentifierManager sharedManager];
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            if (status == ATTrackingManagerAuthorizationStatusAuthorized) {
+                idfa = [[manager advertisingIdentifier] UUIDString];
+            }
+        }];
+    }else{
+        if ([manager isAdvertisingTrackingEnabled]) {
+            idfa = [[manager advertisingIdentifier] UUIDString];
+        }
+    }
+    return idfa;
 }
 
 
@@ -338,7 +362,7 @@ typedef void(^TestBlock)(NSString *string);
     return [array copy];
 }
  
-//获得所有属性
+
 - (NSArray *)getAllProperty:(id)object{
     NSMutableArray *array = [NSMutableArray array];
     
@@ -373,3 +397,31 @@ typedef void(^TestBlock)(NSString *string);
 
 
 @end
+
+
+
+
+
+
+@interface TestPerson()
+
+@end
+
+@implementation TestPerson
+
+-(instancetype)init{
+    self = [super init];
+    if (self) {
+        self.age = 10;
+        self.hi = 20;
+        self.name = @"abcd";
+    }
+    return self;
+}
+
+-(void)dealloc{
+    NSLog(@"哈哈哈哈释放了");
+}
+
+@end
+

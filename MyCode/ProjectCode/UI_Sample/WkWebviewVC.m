@@ -29,18 +29,26 @@
    
 //    NSString *pathURL = @"http://localhost:8080/JavaWeb_Test1/html/CallOC.html";
 //    [_wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:pathURL]]];
-    
+//    NSString *htmlHeader = @"<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header>";
+
 
     // 加载本地html字符串时，设置宽自适应手机屏幕
-//    NSString *htmlHeader = @"<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header>";
 //    NSString *htmlStr = @"<p>爱客宝伙伴们：</p> <p> </p> <p>     关于65%VIP用户分红上报规则，参与上报分红的65%vip需要当月有效结算订单≥1单，才属于有效上报分红点。此规则即日起开始执行。如有任何疑问，点击本通知添加爱客宝官方指导老师微信咨询。</p> <p> </p> <p> </p> <p> </p> <p> </p> <p>                                                                                                                 爱客宝市场部</p> <p>                                                                                                                2021年2月1日</p>";
 //    [_wkWebView loadHTMLString:[htmlStr stringByAppendingString:htmlHeader] baseURL:nil];
     
     
     // 加载本地html文件
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"CallOC" ofType:@"html"];
-    NSURL *pathURL = [NSURL fileURLWithPath:filePath];
-    [_wkWebView loadFileURL:pathURL allowingReadAccessToURL:pathURL];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"wmsj" ofType:@"txt"];
+//    NSURL *pathURL = [NSURL fileURLWithPath:filePath];
+    NSString *url = @"https://new.m.aikbao.com/zeroBuy?uid=b6fd6ab168b2a67e91f818d591a7b6c8&mobile=18711460521&time=1637224471&ifNewUrlV3=1&token=Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9tZW1iZXIuYWlrYmFvLmNvbVwvYXBwXC92MVwvcHdkX2xvZ2luIiwiaWF0IjoxNjM3MjIyNzgzLCJleHAiOjE2OTcyMjI3MjMsIm5iZiI6MTYzNzIyMjc4MywianRpIjoiYTZZQmZoOFBQTnNjNFlwYyIsInN1YiI6ODA5NTQzNSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.cGg_vuMDN9WL3iQ73KKjBXqzQOJY7sQAWEwXq7XTVFA";
+    NSURL *pathURL = [NSURL URLWithString:[url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
+    pathURL = [NSURL URLWithDataRepresentation:[url dataUsingEncoding:NSUTF8StringEncoding] relativeToURL:nil];
+//    [_wkWebView loadFileURL:pathURL allowingReadAccessToURL:pathURL];
+//    [_wkWebView loadHTMLString:htmlHeader baseURL:pathURL];
+    
+//    _wkWebView.customUserAgent = @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36";
+    [_wkWebView loadRequest:[NSURLRequest requestWithURL:pathURL]];
+
 //    [_wkWebView loadHTMLString:@"" baseURL:pathURL];
 //    [_wkWebView loadRequest:[NSURLRequest requestWithURL:pathURL]];
     
@@ -54,7 +62,7 @@
         // 设置
         WKWebViewConfiguration * config = [[WKWebViewConfiguration alloc] init];
         WKPreferences * preference = [[WKPreferences alloc]init];
-        
+        preference.minimumFontSize = 16;
         if (@available(iOS 10.0, *)) {
             config.mediaTypesRequiringUserActionForPlayback = YES;
         }
@@ -188,10 +196,15 @@
     // document.title
     // document.cookie
     
-    NSString *jsCodeString = @"document.body.innerHTML";
+    NSString *jsCodeString = @"document.cookie";
     [webView evaluateJavaScript:jsCodeString completionHandler:^(id _Nullable htmlStr, NSError * _Nullable error) {
-        if (error) { C_LOG(@"js执行错误：\n%@",error) }
-        if (htmlStr) { C_LOG(@"js执行后获取到的内容：\n%@",htmlStr) }
+        if (htmlStr) {
+            NSLog(@"js执行后获取到的内容：\n%@",htmlStr);
+        } else if (error) {
+            NSLog(@"js执行错误：\n%@",error);
+        } else {
+            NSLog(@"其它。。。");
+        }
     }];
     
 }

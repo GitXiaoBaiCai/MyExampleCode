@@ -241,7 +241,7 @@
 #pragma mark ==>> 基本绘图使用
 
 // 网上有个第三方框架 CorePoint，专门做绘图的
-void draw_test(){
+void draw_test(void){
     drawLines();
     drawRect();
     drawCircle();
@@ -253,7 +253,7 @@ void draw_test(){
 }
 
 // 画线
-void drawLines(){
+void drawLines(void){
     
     // 获取上下文
     CGContextRef ref = UIGraphicsGetCurrentContext();
@@ -307,7 +307,7 @@ void drawLines(){
 
 
 // 画虚线
-void drawDummy(){
+void drawDummy(void){
     // 获取上下文
     CGContextRef ref = UIGraphicsGetCurrentContext();
     // 设置起点
@@ -327,7 +327,7 @@ void drawDummy(){
 
 
 // 画矩形
-void drawRect(){
+void drawRect(void){
     
     // 获取上下文
     CGContextRef ref = UIGraphicsGetCurrentContext();
@@ -343,7 +343,7 @@ void drawRect(){
 }
 
 // 画圆(圆弧)
-void drawCircle(){
+void drawCircle(void){
     CGContextRef ref = UIGraphicsGetCurrentContext();
     CGContextAddArc(ref, 150, 150, 140, M_PI_2, M_PI, 1);
     CGContextSetLineWidth(ref, 10);
@@ -351,7 +351,7 @@ void drawCircle(){
 }
 
 // 画椭圆
-void drawEllipse(){
+void drawEllipse(void){
     CGContextRef ref = UIGraphicsGetCurrentContext();
     CGContextAddEllipseInRect(ref, CGRectMake(20, 20, 300, 150));
     CGContextSetLineWidth(ref, 5);
@@ -359,7 +359,7 @@ void drawEllipse(){
 }
 
 // 画字符串
-void drawString(){
+void drawString(void){
     CGContextRef ref = UIGraphicsGetCurrentContext();
     NSString *str = @"哈哈哈,hellow";
     NSDictionary *attrDic = @{NSForegroundColorAttributeName:color_random,
@@ -369,7 +369,7 @@ void drawString(){
 }
 
 // 画图片
-void drawImage(){
+void drawImage(void){
     // 画圆
     CGContextRef ref = UIGraphicsGetCurrentContext();
     CGContextAddEllipseInRect(ref, CGRectMake(20, 20, 200, 200));
@@ -385,7 +385,7 @@ void drawImage(){
 }
 
 // 贝塞尔曲线
-void drawBezierPath(){
+void drawBezierPath(void){
     CGContextRef ref = UIGraphicsGetCurrentContext();
 
     CGFloat cp_x = 150; // 曲线控制点的用户空间的x坐标。
@@ -410,7 +410,7 @@ void drawBezierPath(){
 
 
 // 矩阵操作 CTM，具体可查看api
-void drawCTM(){
+void drawCTM(void){
     // 获取上下文
     CGContextRef ref = UIGraphicsGetCurrentContext();
     CGContextMoveToPoint(ref, 50, 20);

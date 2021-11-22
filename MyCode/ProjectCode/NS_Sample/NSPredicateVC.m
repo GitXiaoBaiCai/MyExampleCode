@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     NSPredicate *predicate = [[NSPredicate alloc]init];
-    
+    NSLog(@"%@",predicate);
 
     
     

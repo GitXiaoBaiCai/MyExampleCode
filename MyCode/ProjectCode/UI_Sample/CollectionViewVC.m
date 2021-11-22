@@ -38,6 +38,7 @@
     _nowSelectIndex = 1;
      
     
+    
 }
 
 -(UICollectionView*)cltView{

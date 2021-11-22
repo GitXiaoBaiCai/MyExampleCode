@@ -25,7 +25,7 @@
     [self textView];
     _shouldChangeStrAry = [NSMutableArray array];
     [self receiveTopicCountWithContent:_textView];
-    UITextInputTraits *aa;
+//    UITextInputTraits *aa;
     
     
 }

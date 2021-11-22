@@ -14,7 +14,7 @@
 #define C_LOG(format, ...)  printf("\n%s\n",[[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
 //#define C_LOG(format, ...)  printf("\n%s\n\n%s\n\n",[date_time_current(@"yyyy-MM-dd HH:mm:ss:SSS") UTF8String],[[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
 
-#define log_point_func   NSLog(@"=> self = %p  _cmd = %p  %s\n",&self,&_cmd,__func__);
+#define log_point_func   NSLog(@"=> self=%p  _cmd=%p  %s\n",&self,&_cmd,__func__);
 
 
 // 屏幕宽高

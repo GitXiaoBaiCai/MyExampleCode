@@ -74,4 +74,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+
+@interface TestPerson : NSObject
+@property(nonatomic, assign) int age;
+@property(nonatomic, assign) int hi;
+@property(nonatomic, copy) NSString *name;
+@end
 NS_ASSUME_NONNULL_END
+
+
+
+
+
+
+
+
+
+
+
+

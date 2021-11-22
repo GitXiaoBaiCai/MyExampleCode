@@ -31,6 +31,16 @@ typedef void(^TestBlock)(NSString*explain);
     _testStr1 = @"测试字符串1";
     _testInt1 = 10;
  
+ 
+//
+//    NSString * (^BlockTest)(NSString *name) = ^(NSString *nam){
+//        NSLog(@"--> %@",nam);
+//        return @"哈哈，返回值";
+//    };
+//
+//    NSString *retV = BlockTest(@"测试传值");
+//    NSLog(@"%@",retV);
+    
 }
 
 

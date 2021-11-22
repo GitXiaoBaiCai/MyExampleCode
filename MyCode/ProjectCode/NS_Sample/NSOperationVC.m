@@ -33,7 +33,7 @@
     [queue addOperation:operation];
 
     
-    NSXMLParser *xmlParser;
+//    NSXMLParser *xmlParser; 
     
     
 
