@@ -57,6 +57,7 @@
 		881C27AB25CA954900A58FDA /* WkWebviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 881C27AA25CA954900A58FDA /* WkWebviewVC.m */; };
 		881C27B125CA956000A58FDA /* AlertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 881C27B025CA956000A58FDA /* AlertVC.m */; };
 		883D98752668BAB700553746 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D98742668BAB700553746 /* TestView.xib */; };
+		883DA58227548419006CD0CA /* TestBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 883DA58127548419006CD0CA /* TestBtnView.m */; };
 		885601AB26789D3C00EF5C9B /* CallOC.html in Resources */ = {isa = PBXBuildFile; fileRef = 885601AA26789D3C00EF5C9B /* CallOC.html */; };
 		88571E7E25E5F0700011C409 /* NSStringVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88571E7D25E5F0700011C409 /* NSStringVC.m */; };
 		88571E8425E5F07E0011C409 /* NSArrayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88571E8325E5F07E0011C409 /* NSArrayVC.m */; };
@@ -276,6 +277,8 @@
 		881C27AF25CA956000A58FDA /* AlertVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertVC.h; sourceTree = "<group>"; };
 		881C27B025CA956000A58FDA /* AlertVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertVC.m; sourceTree = "<group>"; };
 		883D98742668BAB700553746 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
+		883DA58027548419006CD0CA /* TestBtnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBtnView.h; sourceTree = "<group>"; };
+		883DA58127548419006CD0CA /* TestBtnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBtnView.m; sourceTree = "<group>"; };
 		88520C7B2591D95A00AE38FE /* MyCode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyCode.entitlements; sourceTree = "<group>"; };
 		885601AA26789D3C00EF5C9B /* CallOC.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CallOC.html; sourceTree = "<group>"; };
 		88571E7C25E5F0700011C409 /* NSStringVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringVC.h; sourceTree = "<group>"; };
@@ -382,7 +385,6 @@
 		886A27EE266E078800963D3F /* UIViewController+Pop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Pop.m"; sourceTree = "<group>"; };
 		886F357725EDEABC00A5B8CB /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		886F357925EDEABC00A5B8CB /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
-		887901CE269E867B0060DBAE /* java_小码哥.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "java_小码哥.h"; sourceTree = "<group>"; };
 		887AFABB2696DF8300A92084 /* SQL_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQL_VC.h; sourceTree = "<group>"; };
 		887AFABC2696DF8300A92084 /* SQL_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQL_VC.m; sourceTree = "<group>"; };
 		889C1A6926AFB82200032987 /* Block_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Block_VC.h; sourceTree = "<group>"; };
@@ -409,10 +411,6 @@
 		88DEFBD125EF365C00B18900 /* TestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 		88EF15F7267AE41100134604 /* NSPredicateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSPredicateVC.h; sourceTree = "<group>"; };
 		88EF15F8267AE41100134604 /* NSPredicateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSPredicateVC.m; sourceTree = "<group>"; };
-		88EFCF432637E389004B2B51 /* java_马士兵.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "java_马士兵.h"; sourceTree = "<group>"; };
-		88EFCF442637E3F6004B2B51 /* java_图灵学院.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "java_图灵学院.h"; sourceTree = "<group>"; };
-		88EFCF452637E425004B2B51 /* HTML_CSS_JS_渡一.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HTML_CSS_JS_渡一.h"; sourceTree = "<group>"; };
-		88EFCF462637E444004B2B51 /* C:C++_MJ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "C:C++_MJ.h"; sourceTree = "<group>"; };
 		CED24878816239B438064082 /* libPods-MyCodeUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyCodeUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49BB3F07AF2F9F763946223 /* Pods-MyCodeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCodeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCodeTests/Pods-MyCodeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FEF1942B14E0A6D28E6E6DAD /* Pods-MyCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCode/Pods-MyCode.release.xcconfig"; sourceTree = "<group>"; };
@@ -558,6 +556,8 @@
 		40C8B56D22B228CC00366F6F /* Base_Class */ = {
 			isa = PBXGroup;
 			children = (
+				883DA58027548419006CD0CA /* TestBtnView.h */,
+				883DA58127548419006CD0CA /* TestBtnView.m */,
 				40C8B57022B228CC00366F6F /* Base_ViewController.h */,
 				40C8B56E22B228CC00366F6F /* Base_ViewController.m */,
 				40C8B57122B228CC00366F6F /* EmptyReusableView.h */,
@@ -860,11 +860,6 @@
 		88EFCF422637E353004B2B51 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				88EFCF432637E389004B2B51 /* java_马士兵.h */,
-				88EFCF442637E3F6004B2B51 /* java_图灵学院.h */,
-				88EFCF452637E425004B2B51 /* HTML_CSS_JS_渡一.h */,
-				88EFCF462637E444004B2B51 /* C:C++_MJ.h */,
-				887901CE269E867B0060DBAE /* java_小码哥.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1192,6 +1187,7 @@
 				88571E7E25E5F0700011C409 /* NSStringVC.m in Sources */,
 				881C278D25CA92B500A58FDA /* ScrollViewVC.m in Sources */,
 				40C8B59222B228CC00366F6F /* UIImagePickerVC.m in Sources */,
+				883DA58227548419006CD0CA /* TestBtnView.m in Sources */,
 				40C8B59122B228CC00366F6F /* NetRequest.m in Sources */,
 				40C8B59022B228CC00366F6F /* NetWebSocket.m in Sources */,
 				886837D925FF4752006C8DBB /* TestModel+Categ.m in Sources */,

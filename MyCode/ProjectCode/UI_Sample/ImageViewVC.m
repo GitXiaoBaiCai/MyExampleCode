@@ -18,17 +18,64 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    ChainModel *objc1 = [ChainModel new];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        for (int i=0; i<1000; i++) {
-//            NSLog(@"--->> %d",i);
-        }
-    });
-    
-    NSLog(@"viewDidLoad结束。。。");
+    _imageview = [[UIImageView alloc]init];
+    _imageview.frame = CGRectMake(20, 150, 350, 200);
+//    _imageview.image = [self gradientImage:@[color_random, color_random]];
+//    _imageview.image = [self gradientImage:@[color_hex(@"#FD4903"), color_hex(@"#FF3445")]];
+    [self.view addSubview:_imageview];
     
 }
+
+
+
+typedef NS_ENUM(NSInteger,GradientDirection){
+    grd_left = 1,  // 色值从右到左
+    grd_right,     // 色值从左到右
+    grd_top,       // 色值从下到上
+    grd_bottom     // 色值从上到下
+};
+-(UIImage*)gradientImage:(NSArray<UIColor*>*)colors direction:(GradientDirection)direction{
+
+    @autoreleasepool {
+        CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+        gradientLayer.frame = CGRectMake(0, 0, 20, 20);
+        
+        switch (direction) {
+            case grd_left: {
+                gradientLayer.startPoint = CGPointMake(1, 0.5);
+                gradientLayer.endPoint = CGPointMake(0, 0.5);
+            } break;
+
+            case grd_top: {
+                gradientLayer.startPoint = CGPointMake(0.5, 1);
+                gradientLayer.endPoint = CGPointMake(0.5, 0);
+            } break;
+                
+            case grd_bottom: {
+                gradientLayer.startPoint = CGPointMake(0.5, 0);
+                gradientLayer.endPoint = CGPointMake(0.5, 1);
+            } break;
+                
+            default:{ // 默认用 grd_right
+                gradientLayer.startPoint = CGPointMake(0, 0.5);
+                gradientLayer.endPoint = CGPointMake(1, 0.5);
+            } break;
+        }
+        NSMutableArray *colorAry = [NSMutableArray array];
+        for (UIColor *color in colors) {
+            [colorAry addObject:(__bridge id)color.CGColor];
+        }
+        gradientLayer.colors = colorAry;
+        
+        UIGraphicsBeginImageContextWithOptions(gradientLayer.frame.size, NO, [UIScreen mainScreen].scale);
+        [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        if (image) { return image; }
+        return [UIImage imageNamed:@""];
+    }
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

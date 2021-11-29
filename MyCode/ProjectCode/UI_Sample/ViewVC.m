@@ -12,7 +12,7 @@
 
 @property(nonatomic,strong) UIView *testView0;
 @property(nonatomic,strong) UIView *testView1;
-
+@property(nonatomic,strong) UIView *baseView;
 
 @end
 
@@ -24,7 +24,14 @@
 
     [self testView0];
 
- 
+//    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+//    NSLog(@"%f %f",[UIApplication sharedApplication].statusBarFrame.size.height,[UIApplication sharedApplication].statusBarFrame.size.width);
+//    NSLog(@"%f",self.navigationController.navigationBar.frame.size.height);
+//    if (@available(iOS 11.0, *)) {
+//        NSLog(@"safeAreaInsets --> top:%f  bottom:%f  left:%f  right:%f", window.safeAreaInsets.top,window.safeAreaInsets.bottom,window.safeAreaInsets.left,window.safeAreaInsets.right);
+//    } else {
+//        // Fallback on earlier versions
+//    }
     
    // UIDynamicItemGroup *group;
     
@@ -91,6 +98,39 @@
 
 
 
+
+-(UIView*)baseView{
+    if (!_baseView) {
+        _baseView = [[UIView alloc]init];
+        _baseView.backgroundColor = color_random;
+//        _baseView.frame = CGRectMake(100, 400, 260, 160);
+        [self.view addSubview:_baseView];
+        _baseView.translatesAutoresizingMaskIntoConstraints = NO;
+
+        NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:_baseView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:200];
+        NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:_baseView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:100];
+        [_baseView addConstraints:@[width,height]];
+
+        NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:_baseView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
+
+        NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:_baseView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
+
+        [self.view addConstraints:@[centerX,centerY]];
+                
+        
+        // VFL抽象语言编写 LayoutConstraint
+//        [NSLayoutConstraint constraintsWithVisualFormat:<#(nonnull NSString *)#> options:<#(NSLayoutFormatOptions)#> metrics:<#(nullable NSDictionary<NSString *,id> *)#> views:<#(nonnull NSDictionary<NSString *,id> *)#>]
+        
+        
+//        [_baseView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(self.view.mas_centerY).offset(0);
+//            make.centerX.equalTo(self.view.mas_centerX);
+//            make.width.mas_equalTo(320);
+//            make.height.offset(220);
+//        }];
+    }
+    return _baseView;
+}
 
 
  

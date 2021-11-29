@@ -40,7 +40,7 @@
     // 加载本地html文件
 //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"wmsj" ofType:@"txt"];
 //    NSURL *pathURL = [NSURL fileURLWithPath:filePath];
-    NSString *url = @"https://new.m.aikbao.com/zeroBuy?uid=b6fd6ab168b2a67e91f818d591a7b6c8&mobile=18711460521&time=1637224471&ifNewUrlV3=1&token=Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9tZW1iZXIuYWlrYmFvLmNvbVwvYXBwXC92MVwvcHdkX2xvZ2luIiwiaWF0IjoxNjM3MjIyNzgzLCJleHAiOjE2OTcyMjI3MjMsIm5iZiI6MTYzNzIyMjc4MywianRpIjoiYTZZQmZoOFBQTnNjNFlwYyIsInN1YiI6ODA5NTQzNSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.cGg_vuMDN9WL3iQ73KKjBXqzQOJY7sQAWEwXq7XTVFA";
+    NSString *url = @"https://baidu.com";
     NSURL *pathURL = [NSURL URLWithString:[url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
     pathURL = [NSURL URLWithDataRepresentation:[url dataUsingEncoding:NSUTF8StringEncoding] relativeToURL:nil];
 //    [_wkWebView loadFileURL:pathURL allowingReadAccessToURL:pathURL];
@@ -52,9 +52,9 @@
 //    [_wkWebView loadHTMLString:@"" baseURL:pathURL];
 //    [_wkWebView loadRequest:[NSURLRequest requestWithURL:pathURL]];
     
+//    NSString *appVersionJS = [NSString stringWithFormat:@"function appVersion() { return '%@' } ",app_version];
+
     
-    
-        
 }
 
 -(WKWebView*)wkWebView{
@@ -164,6 +164,7 @@
 
 // 开始加载webUrl
 -(void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+//    [_wkWebView evaluateJavaScript:appVersionJS completionHandler:^(id _Nullable htmlStr, NSError * _Nullable error) { }];
     C_LOG(@"网页开始加载。。。。");
     _progressView.hidden = NO;
     _progressView.transform = CGAffineTransformMakeScale(1.0f, 1.5f);
@@ -196,7 +197,12 @@
     // document.title
     // document.cookie
     
-    NSString *jsCodeString = @"document.cookie";
+    
+//    NSString *appVersionJS = [NSString stringWithFormat:@"function akb_appVersion() { return '%@' } ",app_version];
+//
+    NSString *jsCodeString = @"";
+    jsCodeString = [NSString stringWithFormat:@"var akb_appVersion = '%@' ", app_version];
+    
     [webView evaluateJavaScript:jsCodeString completionHandler:^(id _Nullable htmlStr, NSError * _Nullable error) {
         if (htmlStr) {
             NSLog(@"js执行后获取到的内容：\n%@",htmlStr);

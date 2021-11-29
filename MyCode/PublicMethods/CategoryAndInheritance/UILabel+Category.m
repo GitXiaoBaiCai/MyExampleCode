@@ -22,7 +22,6 @@
     
     NSString * labelText = self.text;
     self.numberOfLines = 0;
-    
     NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:spacing_v];
     NSDictionary * attributedDic = @{NSForegroundColorAttributeName:self.textColor,
