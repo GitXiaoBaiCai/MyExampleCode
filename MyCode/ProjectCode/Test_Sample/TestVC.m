@@ -26,28 +26,15 @@
 #import <AdSupport/AdSupport.h>
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
 
-int a4 = 10;
-int a5;
 
 @interface TestVC (){
-    int a3;
+
 };
-@property(nonatomic, strong) TestModel *testModel1;
-@property(nonatomic, strong) TestModel *testModel2;
 
-@property(nonatomic, strong) CADisplayLink *link;
-@property(nonatomic, copy) NSString *str;
-
-@property(strong, nonatomic) TestView *baseView;
-
-@property(assign, nonatomic) int a1;
-@property(assign, nonatomic) int a2;
-
-@property(nonatomic, strong) NSObject *object1;
-@property(assign, nonatomic) BOOL isSelect;
-
-typedef void(^TestBlock)(NSString *string);
-@property(nonatomic, copy) TestBlock testBlock;
+@property(nonatomic, strong) UILabel *txtLab;
+@property(nonatomic, strong) UILabel *txtLab2;
+@property(nonatomic, copy) NSMutableString *testStr1;
+@property(nonatomic, copy) NSMutableString *testStr2;
 
 @end
 
@@ -58,38 +45,57 @@ typedef void(^TestBlock)(NSString *string);
     [super viewDidLoad];
     self.title = @"Test";
     
-    NSArray *functionName = @[@"测试1",
-                              @"测试2",
-                              @"测试3",
-                              @"测试4",
-                              @"",
-                              @"",
-                              @"",
-                              @"",
-                              @"",
-                              @""];
+    NSArray *functionName = @[@"测试1", @"测试2", @"测试3", @"测试4", @"测试5", @"测试6"];
     
-    
+    WeakSelf(weakSelf)
     [TestBtnView showViewOn:self.view btnTitleAry:functionName clickComplete:^(NSInteger btnTag) {
-        [self clickBtn:btnTag];
+        [weakSelf clickBtn:btnTag];
     }];
-
+    
+    
+    _testStr2 = [[NSMutableString alloc]initWithString:@"哈哈哈"];
+    
 }
 
 
 
--(void)clickBtn:(NSInteger)tag {
 
-    NSLog(@"点击了第 %ld 个功能",tag);
+-(void)test {
+    NSLog(@"222222");
+}
+
+
+-(void)clickBtn:(NSInteger)tag {
     
     switch (tag) {
         case 1: {
+                           
+//            C_LOG(@"%@",[RuntimeApi classIvars:[UILabel class]]);
+//            C_LOG(@"%@",[RuntimeApi classPropertys:[UILabel class]]);
+            
+            NSThread *thread = [[NSThread alloc]initWithBlock:^{
+                NSLog(@"111111");
+            }];
+            
+            [thread start];
+            
+            [self performSelector:@selector(test) onThread:thread withObject:nil waitUntilDone:NO];
+        
             
             
         } break;
             
-         case 2: {
- 
+        case 2: {
+            _testStr1 = _testStr2;
+            [_testStr1 insertString:@"哦哦哦" atIndex:2];
+            
+            NSLog(@"1: %@   2: %@", _testStr1, _testStr2);
+            NSLog(@"1: %p   2: %p", _testStr1, _testStr2);
+            NSLog(@"1: %p   2: %p", &_testStr1, &_testStr2);
+
+            
+            
+            
             
         } break;
             
@@ -109,6 +115,11 @@ typedef void(^TestBlock)(NSString *string);
             
         case 5: {
  
+        }
+            
+        case 6: {
+               
+            
         }
             
         default:

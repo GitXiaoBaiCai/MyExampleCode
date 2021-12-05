@@ -25,13 +25,6 @@
     [self addMainViewController];
         
     
-    
-    
-    
-    
-    
-    
-    
     return YES;
 }
 
@@ -59,7 +52,6 @@
 }
 //
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     NSLog(@"App已经进入前台");
 }
 //
@@ -68,7 +60,7 @@
 //}
  
 
-
+/*
 // 注册本地通知
 -(void)registLocalNotification{
     if (@available(iOS 10.0, *)) { // iOS10 以上
@@ -80,7 +72,7 @@
     } else {// iOS8.0 以上
         UIUserNotificationSettings *setting = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:setting];
-    }    
+    }
 }
 
 
@@ -128,7 +120,7 @@
     C_LOG(@"IOS7以上应用程序内部接收到的通知：\n%@",userInfo);
 }
 
-
+*/
 
 
 

@@ -235,8 +235,8 @@ void testPrint(id self,SEL _cmd){
 -(void)forwardInvocation:(NSInvocation *)anInvocation{
     // [anInvocation invokeWithTarget:[[RuntimeTestSubModel alloc]init]];
     // 或者
-    anInvocation.target = [[RuntimeTestSubModel alloc]init];
-    [anInvocation invoke];
+//    anInvocation.target = [[RuntimeTestSubModel alloc]init];
+//    [anInvocation invoke];
     // 或者，可以不管传进来的方法，在这里可以任意写代码等比如，打印，修改传入值等等。。
 }
 
@@ -261,7 +261,7 @@ void testPrint(id self,SEL _cmd){
 #pragma mark ==>> 父类系统方法
 
 +(void)load{
-    log_point_func
+
 }
 
 +(void)initialize{
@@ -319,7 +319,7 @@ void testPrint(id self,SEL _cmd){
 @implementation RuntimeTestSubModel
 
 +(void)load{
-    log_point_func
+    
 }
 
 +(void)initialize{

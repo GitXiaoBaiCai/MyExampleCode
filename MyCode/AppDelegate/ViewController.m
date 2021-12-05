@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property(nonatomic, strong) UITableView *tableView;
 
@@ -49,7 +49,8 @@
                   @"WkWebview",
                   @"UIAlert",
                   @"Animation",
-                  @"CALayer"];
+                  @"CALayer",
+                  @"Stack"];
     
     _oc_Array = @[@"NSString",
                   @"NSAttributedString",

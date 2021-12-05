@@ -1,8 +1,8 @@
 //
-//  ButtonVC.h
+//  StackVC.h
 //  MyCode
 //
-//  Created by New_iMac on 2021/2/3.
+//  Created by New_iMac on 2021/11/30.
 //  Copyright © 2021 mycode. All rights reserved.
 //
 
@@ -10,11 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ButtonVC : Base_ViewController
+@interface StackVC : Base_ViewController
 
 @end
 
 
+@interface IconButton : UIButton
+
+@end
 
 
 NS_ASSUME_NONNULL_END

@@ -52,7 +52,7 @@
 }
  
 +(void)load{
-    C_LOG(@"TestModel执行了load方法 a4 = %d",a4)
+
 }
  
 

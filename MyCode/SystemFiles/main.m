@@ -22,6 +22,10 @@ extern void _objc_autoreleasePoolPrint(void);
  
 
 int main(int argc, char * argv[]) {
+
+//    char *env = getenv("DYLD_INSERT_LIBRARIES");
+    
+    
     @autoreleasepool {
         NSLog(@"程序开始运行");
         // oc代码中的self也是局部变量

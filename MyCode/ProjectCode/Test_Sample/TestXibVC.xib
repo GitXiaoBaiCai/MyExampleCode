@@ -19,26 +19,32 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="阿法尔 社保人事部门大佛把你的佛I不念佛的地方总部站大佛你把ODFNB东方饭店" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="143" translatesAutoresizingMaskIntoConstraints="NO" id="XZ4-mE-spr">
-                    <rect key="frame" x="117" y="90" width="141" height="96"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="哈哈哈哈和社润肤露很牛逼me电饭煲农夫ID电脑上博VS大半年的非农真的 " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9L-Jg-dm3">
+                    <rect key="frame" x="0.0" y="177" width="375" height="81"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C6D-zI-PdK">
+                    <rect key="frame" x="0.0" y="44" width="375" height="510"/>
+                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="XZ4-mE-spr" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="117" id="2vS-so-1nS"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="XZ4-mE-spr" secondAttribute="trailing" constant="117" id="HS7-sU-jlh"/>
-                <constraint firstItem="XZ4-mE-spr" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="46" id="gtB-Ya-IAB"/>
+                <constraint firstItem="C6D-zI-PdK" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="16" id="pET-8R-qYJ"/>
             </constraints>
-            <point key="canvasLocation" x="-652" y="62"/>
+            <point key="canvasLocation" x="-652" y="61.330049261083744"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -170,8 +170,6 @@
 	<string>使用位置</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>当需要使用位置时定位</string>
-	<key>UIBackgroundModes</key>
-	<array/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

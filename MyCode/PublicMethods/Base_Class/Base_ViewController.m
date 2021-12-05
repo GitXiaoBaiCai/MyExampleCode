@@ -16,7 +16,7 @@
 
 
 +(void)load{
-    NSLog(@"%s",__func__);
+
 }
 
 
@@ -93,6 +93,9 @@
 }
 
 
+ 
+
+
 // 视图将要出现
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -113,10 +116,8 @@
 
 
 -(void)dealloc{
-//    NSLog(@"%s",__func__);
+    NSLog(@"[%@ delloc]", self.class);
 }
-
-
 
 /*
 #pragma mark - Navigation

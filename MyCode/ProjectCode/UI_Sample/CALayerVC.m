@@ -24,7 +24,7 @@
     [self addTestBtn];
 //    [self layerView];
 //    [self layer];
-    UIBezierPath *bezier;
+//    UIBezierPath *bezier;
     
     [self imageView];
     [self creatBitmap];

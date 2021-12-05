@@ -19,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 //+(void)pushSelfViewController:(id __nullable)parameter;
 
 
-
 @property(nonatomic,strong) id publicParameter;
 
 

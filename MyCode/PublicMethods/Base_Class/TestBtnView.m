@@ -22,21 +22,13 @@
     }];
 }
 
-//-(instancetype)initWithFrame:(CGRect)frame {
-//    self = [super initWithFrame:frame];
-//    if (self) {
-//
-//    }
-//    return self;
-//}
-
 -(void)setBtnTitleAry:(NSArray *)btnTitleAry {
     
     for (int i=0; i<btnTitleAry.count; i++) {
         NSString *title = btnTitleAry[i];
         if (!title||title.length<1) { break; }
         UIButton *button = [UIButton buttonWithType:(UIButtonTypeSystem)];
-        button.titleLabel.font = [UIFont systemFontOfSize:14];
+        button.titleLabel.font = [UIFont systemFontOfSize:15];
         [button setTitle:btnTitleAry[i] forState:(UIControlStateNormal)];
         [button setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
         button.backgroundColor = [UIColor colorWithRed:88/255.0f green:86/255.0f blue:213/255.0f alpha:1];
@@ -50,9 +42,9 @@
             make.width.offset(150);
             make.height.offset(46);
             if (i%2==0) {
-                make.left.equalTo(self.mas_centerX).offset(10);
-            }else {
                 make.right.equalTo(self.mas_centerX).offset(-10);
+            }else {
+                make.left.equalTo(self.mas_centerX).offset(10);
             }
           }];
     }

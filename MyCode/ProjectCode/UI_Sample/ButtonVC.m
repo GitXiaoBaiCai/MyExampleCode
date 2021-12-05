@@ -16,10 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self button];
+//    [self button];
     
-    // Do any additional setup after loading the view.
+
+    
+    
 }
+
+
+
+
 
 
 -(UIButton*)button{
@@ -50,9 +56,10 @@
 }
 
 -(void)clickButton:(UIButton*)btn{
-    [self addLocalNotice];
+//    [self addLocalNotice];
 }
 
+/*
 - (void)addLocalNotice {
     if (@available(iOS 10.0, *)) {
    
@@ -101,7 +108,10 @@
         [[UIApplication sharedApplication] scheduleLocalNotification:notif];
     }
     
-}
+}*/
+
+
+
 /*
 #pragma mark - Navigation
 
@@ -122,3 +132,6 @@
 
 
 @end
+
+
+

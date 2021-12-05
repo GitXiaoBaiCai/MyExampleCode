@@ -33,9 +33,8 @@ typedef void(^TestBlock)(NSString*name);
 +(void)metalTestWay1:(NSString*)str;
 +(void)metalTestWay2;
 
--(void)runtimeAddFunc;
 
--(void)subModelPrint; // 测试消息转发用的
+//-(void)subModelPrint; // 测试消息转发用的
 
  
 
