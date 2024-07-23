@@ -76,10 +76,8 @@
     
     
     NSDecimalNumberHandler* roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:type scale:position raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:NO];
-    NSDecimalNumber * ouncesDecimal;
-    NSDecimalNumber * roundedOunces;
-    ouncesDecimal = [[NSDecimalNumber alloc] initWithFloat:[num floatValue]];
-    roundedOunces = [ouncesDecimal decimalNumberByRoundingAccordingToBehavior:roundingBehavior];
+    NSDecimalNumber *ouncesDecimal = [[NSDecimalNumber alloc] initWithFloat:[num floatValue]];
+    NSDecimalNumber *roundedOunces = [ouncesDecimal decimalNumberByRoundingAccordingToBehavior:roundingBehavior];
     return [NSString stringWithFormat:@"%@",roundedOunces];
 }
 
@@ -176,8 +174,7 @@
 
 
 +(void)logAllSubviews:(UIView*)view{
-    
-
+    NSLog(@"打印出所有视图图层");
 }
 
 
@@ -290,6 +287,24 @@
 
 
 
+
+#pragma mark --> 生成一个随机字符串
+
+
++(NSString*)randomStr:(NSInteger)length{
+    
+    NSMutableString *random_str = [[NSMutableString alloc]init];
+    
+    while (random_str.length!=length) {
+        int a = arc4random()%74+48;
+        if ( (a>47&&a<58) || (a>64&&a<91) || (a>96&&a<123) ) {
+            [random_str appendString:[NSString stringWithFormat:@"%c", a]];
+        }
+    }
+        
+    return (NSString*)random_str;
+ 
+}
 
 
 

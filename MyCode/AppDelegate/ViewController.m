@@ -15,6 +15,7 @@
 @property(nonatomic, strong) NSArray *ui_Array;
 @property(nonatomic, strong) NSArray *oc_Array;
 @property(nonatomic, strong) NSArray *other_Array;
+@property(nonatomic, strong) NSArray *hardware_Array;
 
 @property(nonatomic, strong) NSArray *test_Array;
 
@@ -35,7 +36,8 @@
     
     _test_Array = @[@"Test",@"TestXib"];
     
-    _ui_Array = @[@"UIView",
+    _ui_Array = @[@"TestOther",
+                  @"UIView",
                   @"UILabel",
                   @"UIButton",
                   @"UITextField",
@@ -95,6 +97,14 @@
     
     _other_Array = @[@"GCD_", @"Block_", @"SQL_",];
     
+    _hardware_Array = @[@"BlueTooth",
+                        @"WiFiConfig",
+                        @"MultipeerConnectivity",
+                        @"BarcodeScanner",];
+    
+    
+
+    
     [_dataArray addObject:_test_Array];
     [_titleArray addObject:@"test"];
         
@@ -106,6 +116,9 @@
     
     [_dataArray addObject:_other_Array];
     [_titleArray addObject:@"其它常用"];
+        
+    [_dataArray addObject:_hardware_Array];
+    [_titleArray addObject:@"硬件相关"];
     
     [self tableView];
     
@@ -128,8 +141,11 @@
     return  _tableView;
 }
 
-
+#pragma mark
 #pragma mark ==>> UITableView代理，数据源
+#pragma mark
+
+
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return _dataArray.count;

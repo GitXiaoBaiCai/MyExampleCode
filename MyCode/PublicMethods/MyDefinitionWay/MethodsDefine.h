@@ -14,6 +14,10 @@
 #define C_LOG(format, ...)  printf("\n%s\n",[[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
 //#define C_LOG(format, ...)  printf("\n%s\n\n%s\n\n",[date_time_current(@"yyyy-MM-dd HH:mm:ss:SSS") UTF8String],[[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
 
+
+#define C_LOG_NO_(format, ...)  printf("\n\n%s\n\n",[[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+
+
 #define log_point_func   NSLog(@"=> self=%p  _cmd=%p  %s\n",&self,&_cmd,__func__);
 
 
@@ -102,6 +106,8 @@
 // MD5加密，字符串
 #define md5_str(str)    [MethodsClassObjc md5encrypting:str]
 
+#define random_str(len) [MethodsClassObjc randomStr:len]
+
 // 去掉各种空值：<null> nil 等
 #define null_str(_str)  [MethodsClassObjc replaceEmptyStr:_str]
 #define null_dic(_dic)  [MethodsClassObjc dicNull:_dic]
@@ -126,6 +132,8 @@
 #define img_blur(blur_img,blur_num)  [MethodsClassObjc boxblurImage:blur_img withBlurNumber:blur_num];
 
 
+
+
 #pragma mark ===>>> 正则判断
 #define judge_two_point_num @"^([0-9][0-9]*)+(.[1-9]{0,2})?$"  // 输入两位有效数字
 #define judge_phone_number  @"^1[0-9][0-9]\\d{8}$" // 判断手机号
@@ -133,6 +141,8 @@
 #define judge__strAZ_az_09  @"^[A-Za-z0-9]+$"      // 只允许数字和字母
 // 正则判断 ： 参数1：公式  参数2：
 #define regular_judge(formula,string) [MethodsClassObjc judgeSelectionExpression:formula content:string]
+
+
 
 
 #pragma mark ===>>> 时间有关

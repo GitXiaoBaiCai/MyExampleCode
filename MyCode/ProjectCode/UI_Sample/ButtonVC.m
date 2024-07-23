@@ -7,19 +7,26 @@
 //
 
 #import "ButtonVC.h"
+#import "UIImagePickerVC.h"
 
 @interface ButtonVC ()
 @property(nonatomic, strong) UIButton *button;
+@property(nonatomic, strong) UIImageView *imgView;
 @end
 
 @implementation ButtonVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self button];
+    [self button];
     
-
-    
+    self.imgView = [[UIImageView alloc]init];
+    [self.view addSubview:self.imgView];
+    [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(navc_bar_h+200);
+        make.width.height.offset(200);
+        make.centerX.equalTo(self.view.mas_centerX);
+    }];
     
 }
 
@@ -56,6 +63,15 @@
 }
 
 -(void)clickButton:(UIButton*)btn{
+    
+    [[UIImagePickerVC shareInstance] showPickerVC:self allowsEditing:YES sourceType:2 selectImg:^(id data) {
+        NSLog(@"%@", data);
+        
+        self.imgView.image = (UIImage*)data;
+        
+    }];
+    
+    
 //    [self addLocalNotice];
 }
 

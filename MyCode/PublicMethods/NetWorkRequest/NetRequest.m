@@ -112,14 +112,16 @@
         manager.requestSerializer.timeoutInterval = OutTime ;
         [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
         [self http:url pdic:pdic]; // 打印请求链接
-        [manager GET:url parameters:pdic progress:nil success:^(NSURLSessionDataTask * task, id responseObject) {
+        [manager GET:url parameters:pdic headers:@{} progress:^(NSProgress * _Nonnull downloadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             [self nalogHttp:url pdic:pdic resdate:responseObject type:2];
             NSDictionary * dicData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             if (dicData) { completeS(null_dic(dicData)); }
             else{ completeF(@"返回数据为空，或数据格式有误!"); }
-            
-        } failure:^(NSURLSessionDataTask * task, NSError * error) {
+                
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSHTTPURLResponse * responses = (NSHTTPURLResponse *)task.response;
             NSString * codeStr = [self codeStr:responses.statusCode];
             if (codeStr.length > 0) { completeF(codeStr); }
@@ -141,20 +143,21 @@
         
         [self http:url pdic:pdic]; //打印请求链接
         
-        [manager POST:url parameters:pdic progress:nil success:^(NSURLSessionDataTask *  task, id   responseObject) {
+        [manager POST:url parameters:pdic headers:@{} progress:^(NSProgress * _Nonnull uploadProgress) {
             
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             [self nalogHttp:url pdic:pdic resdate:responseObject type:1];
             NSDictionary * dicData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             if (dicData) { completeS((dicData)); }
             else{ completeF(@"返回数据为空，或JSON格式有误!"); }
-            
-        } failure:^(NSURLSessionDataTask * task, NSError * error) {
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSHTTPURLResponse * responses = (NSHTTPURLResponse *)task.response;
             NSString * codeStr = [self codeStr:responses.statusCode];
             if (codeStr.length > 0) { completeF(codeStr); }
             else{  completeF(error.localizedDescription);  }
             [self nalogHttp:url pdic:pdic error:error type:1];
         }];
+        
     } @catch (NSException *exception) { completeF(@"请求失败!"); } @finally { }
     
 }
@@ -182,7 +185,7 @@
     NSString * fileName = @"image/jpeg";
     if (upType==1) { fileName = @"text/plain"; }
     
-    [manager POST:upUrl parameters:allPdic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [manager POST:upUrl parameters:allPdic headers:@{} constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         @try {
             switch (ftype) {
                 case 1:{ // 数组类型(二进制或图片)
@@ -256,7 +259,6 @@
         } @finally {
             
         }
-        
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         C_LOG(@"上传进度: %.2f",uploadProgress.fractionCompleted);
         completeUploadProgress(uploadProgress);

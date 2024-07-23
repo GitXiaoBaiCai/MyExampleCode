@@ -22,8 +22,7 @@
     
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDownloadsDirectory, NSUserDomainMask, YES);
     NSLog(@"%@",pathArray);
-    
-    
+
     
     
     

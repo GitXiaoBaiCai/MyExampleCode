@@ -15,7 +15,7 @@
 #define default_dns_socket   @"ws://47.106.75.191:8282"           // socket域名
 
 
-// 动态域名(用默认域名获取)
+// 动态域名(用默认域名获取)‚
 #define dynamic_dns_mian       [NetRequest get_local_dns_by_type:0]  // 主域名
 #define dynamic_dns_socket     [NetRequest get_local_dns_by_type:1]  // socket域名
 
@@ -34,3 +34,4 @@
 
 
 #endif /* RequestUrl_h */
+

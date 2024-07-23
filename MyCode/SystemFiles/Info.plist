@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>zh_CN</string>
+	<string>ja_JP</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIcons</key>
@@ -101,7 +101,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>自测app</string>
+	<string>Sample</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -160,8 +160,19 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>检测近场设备，用于签到</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>检测近场设备</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_signin._udp</string>
+		<string>_signin._tcp</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>扫码</string>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>哈哈哈哈</string>
+	<string>近场通讯</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>推荐周边</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -170,8 +181,14 @@
 	<string>使用位置</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>当需要使用位置时定位</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>获取图片</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string></string>
+	<key>UIBackgroundModes</key>
+	<array/>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>LaunchScreen.storyboard</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -185,8 +202,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
-	<key>NSUserTrackingUsageDescription</key>
-	<string></string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -194,5 +209,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>com.apple.developer.networking.HotspotConfiguration</key>
+	<true/>
 </dict>
 </plist>

@@ -33,6 +33,8 @@ typedef void (^testBlock)(int a,int c) ;
 @property(nonatomic,assign) NSInteger white;
 
 
+ 
+
 @end
 
 

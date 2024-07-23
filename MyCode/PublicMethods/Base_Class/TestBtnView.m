@@ -16,8 +16,8 @@
     testBtn.clickBtnBlock = completeBlock;
     [superView addSubview:testBtn];
     [testBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.offset([UIApplication sharedApplication].statusBarFrame.size.height+44+20);
-        make.centerX.equalTo(superView.mas_centerX); make.width.offset(330);
+        make.top.offset(20); make.width.offset(330);
+        make.centerX.equalTo(superView.mas_centerX);
         make.height.offset(titleAry.count/2*70+(titleAry.count%2)*70);
     }];
 }

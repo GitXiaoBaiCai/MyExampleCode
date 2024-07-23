@@ -10,24 +10,107 @@
 #import "AppDelegate.h"
 #import <objc/runtime.h>
 
+
+
 int a = 10;
 int b;
 
 NSObject *objc3;
 NSObject *objc4;
 
-
-
 extern void _objc_autoreleasePoolPrint(void);
- 
+
+
+
+// <?php
+//
+//function climbStairs($n)
+//{
+//    if ($n == 1) {
+//        return 1;
+//    }
+//    $first = 1;
+//    $second = 2;
+//    for ($i = 3; $i <= $n; $i++) {
+//        $third = $first + $second;
+//        $first = $second;
+//        $second = $third;
+//    }
+//    return $second;
+//}
+//var_dump(climbStairs(7));
+
+
+
+
+int climbStairs(int n) {
+    if(n==1){
+        return 1;
+    }
+    int first = 1, second = 2;
+    for (int i = 3 ; i<n; i++) {
+        int third = first+second;
+        first = second;
+        second = third;
+        
+    }
+    return second;
+}
+
+
+
+
+
+int stairs1(int n){
+    if (n<=0) {
+        return -1;
+    }
+    if (n==1) {
+        return 1;
+    }
+    if (n==2) {
+        return 2;
+    } else {
+        int result = stairs1(n-1)+stairs1(n-2);
+        NSLog(@"相加结果：%d", result);
+        return  result;
+    }
+}
+
+
+int climbStairs1(int n) {
+    int fn = 1, fn1 = 0, fn2 = 0;
+    for (int i = 1; i <= n; ++i) {
+        fn2 = fn1;
+        fn1 = fn;
+        fn = fn1 + fn2;
+    }
+    return fn;
+}
+
+
+
 
 int main(int argc, char * argv[]) {
+
+//    NSLog(@"爬楼梯：%d", stairs1(10));
+//    NSLog(@"爬楼梯：%d", climbStairs1(10));
+
+    
+    
+    
+    
 
 //    char *env = getenv("DYLD_INSERT_LIBRARIES");
     
     
     @autoreleasepool {
-        NSLog(@"程序开始运行");
+        
+        
+    
+        
+        
+//        NSLog(@"程序开始运行");
         // oc代码中的self也是局部变量
         // 局部变量默认前面带有auto,离开作用域后会自动销毁
 //        auto int age = 10;
@@ -57,6 +140,7 @@ int main(int argc, char * argv[]) {
 
     }
 }
+
 
 
 

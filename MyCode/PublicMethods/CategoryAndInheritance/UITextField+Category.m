@@ -26,7 +26,7 @@
     txF.leftViewMode = UITextFieldViewModeAlways;
     txF.placeholder = phStr; txF.font = font;
     txF.text = @"";
-    
+    txF.textColor = color;
     
     UITapGestureRecognizer * tapEndLab = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jishubianji)];
     UIView * keyBoardTopview = [[UIView alloc]init];

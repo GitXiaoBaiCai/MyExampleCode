@@ -17,12 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSPredicate *predicate = [[NSPredicate alloc]init];
-    NSLog(@"%@",predicate);
-
+//    NSPredicate
     
     
-    // Do any additional setup after loading the view.
+    
 }
 
 /*

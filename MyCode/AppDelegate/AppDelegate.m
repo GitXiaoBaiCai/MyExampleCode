@@ -9,6 +9,14 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "TestVC.h"
+#import "Aaaaaa.h"
+
+#import <sys/socket.h>
+#import <sys/sockio.h>
+#import <sys/ioctl.h>
+#import <ifaddrs.h>
+#import <arpa/inet.h>
+#include <net/if.h>
 
 @interface AppDelegate () <UNUserNotificationCenterDelegate>
 
@@ -21,9 +29,45 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+  
+    
+//    NSLog(@"ip地址：%@", [self getIPAddress]);
+    
     
     [self addMainViewController];
         
+ 
+    
+    UIDevice *device = [UIDevice currentDevice];
+
+    NSLog(@"name: %@", device.name);
+    NSLog(@"systemName: %@", device.systemName);
+    NSLog(@"model: %@", device.model);
+    NSLog(@"localizedModel: %@", device.localizedModel);
+    NSLog(@"systemName: %@", device.systemName);
+    NSLog(@"systemVersion: %@", device.systemVersion);
+    NSLog(@"orientation: %ld", (long)device.orientation);
+    NSLog(@"identifierForVendor: %@", device.identifierForVendor);
+    NSLog(@"batteryState: %ld", (long)device.batteryState);
+    NSLog(@"batteryLevel: %f", device.batteryLevel);
+    NSLog(@"proximityMonitoringEnabled: %d", device.proximityMonitoringEnabled);
+    NSLog(@"proximityState: %d", device.proximityState);
+    NSLog(@"multitaskingSupported: %d", device.multitaskingSupported);
+    
+    
+    
+//    NSURL *url = [NSURL URLWithString:@"aaa://"];
+//
+//    [[UIApplication sharedApplication] openURL:url options:nil completionHandler:^(BOOL success) {
+//        NSLog(@"--> %d", success);
+//    }];
+    
+ 
+
+    
+    
+    
+
     
     return YES;
 }
@@ -52,6 +96,7 @@
 }
 //
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    NSLog(@"didBecomeActive: %f",[NSDate date].timeIntervalSince1970);
     NSLog(@"App已经进入前台");
 }
 //
@@ -123,12 +168,136 @@
 */
 
 
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    NSLog(@"%@、 %@", url, options);
+    return  YES;
+}
 
 
 
+//Save NSlog print information to a file in the Document directory
+- (void)redirectNSlogToDocumentFolder{
+    UIDevice *device = [UIDevice currentDevice];
+    if ([[device model] isEqualToString:@"Simulator"]) {
+        return;
+    }
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+
+    NSString *documentDirectory = [paths objectAtIndex:0];
+
+    NSString *fileName = [NSString stringWithFormat:@"test.log"];
+
+    NSString *logFilePath = [documentDirectory stringByAppendingPathComponent:fileName];
+
+    // Delete existing files
+    NSFileManager *defaultManager = [NSFileManager defaultManager];
+    [defaultManager removeItemAtPath:logFilePath error:nil];
+
+    //Enter the log into the file
+    freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stdout);
+    freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr);
+
+}
 
 
+
+-(NSString *)getIPAddress {
+    
+    int sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+ 
+    
+    NSMutableArray *ips = [NSMutableArray array];
+    
+    int BUFFERSIZE = 4096;
+    
+    struct ifconf ifc;
+    
+    char buffer[BUFFERSIZE], *ptr, lastname[IFNAMSIZ], *cptr;
+    
+    struct ifreq *ifr, ifrcopy;
+    
+    ifc.ifc_len = BUFFERSIZE;
+    
+    ifc.ifc_buf = buffer;
+    
+    if (ioctl(sockfd, SIOCGIFCONF, &ifc) >= 0) {
+        
+        for (ptr = buffer; ptr < buffer + ifc.ifc_len; ) {
+            
+            ifr = (struct ifreq *)ptr;
+            
+            int len = sizeof(struct sockaddr);
+            
+            if (ifr->ifr_addr.sa_len > len) {
+                
+                len = ifr->ifr_addr.sa_len;
+            }
+            
+            ptr += sizeof(ifr->ifr_name) + len;
+            
+            if (ifr->ifr_addr.sa_family != AF_INET) continue;
+            
+            if ((cptr = (char *)strchr(ifr->ifr_name,':')) != NULL) *cptr = 0;
+            
+            if (strncmp(lastname, ifr->ifr_name, IFNAMSIZ) == 0)continue;
+            
+            memcpy(lastname, ifr->ifr_name, IFNAMSIZ);
+            
+            ifrcopy = *ifr;
+            
+            ioctl(sockfd, SIOCGIFFLAGS, &ifrcopy);
+            
+            if ((ifrcopy.ifr_flags & IFF_UP) == 0) continue;
+            
+            NSString *ip = [NSString stringWithFormat:@"%s",inet_ntoa(((struct sockaddr_in *)&ifr->ifr_addr)->sin_addr)];
+            
+            [ips addObject:ip];
+        }
+        
+    }
+    
+    close(sockfd);
+    
+    NSString *deviceIP = @"";
+    for (int i = 0; i < ips.count; i++) {
+        if(ips.count > 0) {
+            deviceIP = [NSString stringWithFormat:@"%@", ips.lastObject];
+        }
+    }
+    
+    return deviceIP;
+}
 
 
 
 @end
+
+
+
+
+
+
+
+/*
+ 
+ 
+ 1.04    1.06    1.10    1.09    1.08    1.09    1.07    1.05    1.04
+
+ 1.69    1.63    1.66    1.48    1.58    1.54    1.59    1.70    1.48
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ */
+
+
+
+

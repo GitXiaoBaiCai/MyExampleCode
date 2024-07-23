@@ -69,6 +69,8 @@
 // 图片高斯模糊
 + (UIImage *)boxblurImage:(UIImage *)image withBlurNumber:(CGFloat)blur;
 
++(NSString*)randomStr:(NSInteger)length;
+
 @end
 
 

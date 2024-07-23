@@ -29,6 +29,8 @@
 #define color_red   [UIColor redColor]         // 系统红色
 
 
+#define color_code  color_rgba(58.f, 181.f, 75.f,1)  // 表格背景灰
+
 #define color_group  color_rgba(246.f,246.f,246.f,1)  // 表格背景灰
 
 #define color_theme  color_rgb(88, 86, 213)          // 主题色

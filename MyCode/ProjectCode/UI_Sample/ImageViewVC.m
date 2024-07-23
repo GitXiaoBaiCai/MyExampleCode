@@ -18,11 +18,54 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _imageview = [[UIImageView alloc]init];
-    _imageview.frame = CGRectMake(20, 150, 350, 200);
-//    _imageview.image = [self gradientImage:@[color_random, color_random]];
-//    _imageview.image = [self gradientImage:@[color_hex(@"#FD4903"), color_hex(@"#FF3445")]];
-    [self.view addSubview:_imageview];
+//    _imageview = [[UIImageView alloc]init];
+//    _imageview.frame = CGRectMake(20, 150, 350, 200);
+//    UIImage *img;
+////    UIImagePNGRepresentation();
+////    _imageview.image = [self gradientImage:@[color_random, color_random]];
+////    _imageview.image = [self gradientImage:@[color_hex(@"#FD4903"), color_hex(@"#FF3445")]];
+//    [self.view addSubview:_imageview];
+    
+    self.view.backgroundColor = [UIColor redColor];
+    
+    
+    UIView *view = [[UIView alloc]init];
+    view.backgroundColor = color_white;
+    [self.view addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(200);
+        make.height.width.offset(300);
+        make.centerX.equalTo(self.view.mas_centerX);
+    }];
+    
+    
+    
+    UIImageView *imageTop = [[UIImageView alloc]init];
+    imageTop.image = [UIImage imageNamed:@"album_icon-min"];
+    imageTop.contentMode = UIViewContentModeScaleAspectFit;
+    [view addSubview:imageTop];
+    [imageTop mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(10);
+        make.height.offset(220);
+        make.width.offset(220);
+        make.centerX.equalTo(self.view.mas_centerX);
+    }];
+    
+    
+    UIImageView *imageBot = [[UIImageView alloc]init];
+    imageBot.image = [UIImage imageNamed:@"addcn_logo"];
+    imageBot.contentMode = UIViewContentModeScaleAspectFit;
+    [view addSubview:imageBot];
+    [imageBot mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.offset(-20);
+        make.height.offset(45);
+        make.width.offset(300);
+        make.centerX.equalTo(self.view.mas_centerX);
+    }];
+    
+    
+    
+    
     
 }
 

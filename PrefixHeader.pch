@@ -9,7 +9,10 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 // 系统框架
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import <UserNotifications/UserNotifications.h>
+#import <NetworkExtension/NetworkExtension.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <AVFoundation/AVMediaFormat.h>
 #import <AudioToolbox/AudioToolbox.h>

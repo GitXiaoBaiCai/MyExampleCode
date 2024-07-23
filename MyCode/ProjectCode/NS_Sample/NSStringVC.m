@@ -22,11 +22,6 @@
     
     NSLog(@"\n\n%@",[self praseHtmlStr:htmlStr]);
     
-
-    
-    
-    
-    
     
 }
 

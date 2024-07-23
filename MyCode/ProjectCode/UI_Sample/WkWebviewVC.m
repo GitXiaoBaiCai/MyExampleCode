@@ -13,20 +13,45 @@
 @property(nonatomic, strong) UIProgressView *progressView; // 进度条展示
 @property(nonatomic, strong) WKWebView *wkWebView;  // wkWebView
 @property(nonatomic, strong) UIButton *colosWebBtn; // 关闭页面的按钮
+@property(nonatomic, strong) NSFileHandle *fileHandle;
 
 @end
 
 @implementation WkWebviewVC
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+    
+//    NSFileManager *fileManager = [NSFileManager defaultManager];
+//    NSURL *documentsDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
+//    
+//    if (documentsDirectory == nil) {
+//        NSLog(@"Unable to access documents directory.");
+//        return;
+//    }
+//    
+//    C_LOG(@"%@", documentsDirectory)
+//    
+//    NSURL *fileURL = [documentsDirectory URLByAppendingPathComponent:@"myFile.txt"];
+//    _fileHandle = [NSFileHandle fileHandleForWritingAtPath:fileURL.path];
+//    if (_fileHandle == nil) {
+//        NSLog(@"Unable to open file for appending.");
+//        return;
+//    }
+    
     [self addLeftButtonItem];
     [self wkWebView];
+
+    
     [self loadContent];
 }
 
 -(void)loadContent{
-   
+
+ 
+    
 //    NSString *pathURL = @"http://localhost:8080/JavaWeb_Test1/html/CallOC.html";
 //    [_wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:pathURL]]];
 //    NSString *htmlHeader = @"<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header>";
@@ -38,19 +63,19 @@
     
     
     // 加载本地html文件
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"wmsj" ofType:@"txt"];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"CallOC" ofType:@"html"];
 //    NSURL *pathURL = [NSURL fileURLWithPath:filePath];
-    NSString *url = @"https://baidu.com";
-    NSURL *pathURL = [NSURL URLWithString:[url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
-    pathURL = [NSURL URLWithDataRepresentation:[url dataUsingEncoding:NSUTF8StringEncoding] relativeToURL:nil];
+    NSString *url = FORMATSTR(@"https://m.100.com.tw/app/jump?channel_code=rayduenglish");
+//    NSURL *pathURL = [NSURL URLWithString:[url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
+//    pathURL = [NSURL URLWithDataRepresentation:[url dataUsingEncoding:NSUTF8StringEncoding] relativeToURL:nil];
 //    [_wkWebView loadFileURL:pathURL allowingReadAccessToURL:pathURL];
 //    [_wkWebView loadHTMLString:htmlHeader baseURL:pathURL];
     
 //    _wkWebView.customUserAgent = @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36";
-    [_wkWebView loadRequest:[NSURLRequest requestWithURL:pathURL]];
+//    [_wkWebView loadRequest:[NSURLRequest requestWithURL:pathURL]];
 
 //    [_wkWebView loadHTMLString:@"" baseURL:pathURL];
-//    [_wkWebView loadRequest:[NSURLRequest requestWithURL:pathURL]];
+    [_wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
     
 //    NSString *appVersionJS = [NSString stringWithFormat:@"function appVersion() { return '%@' } ",app_version];
 
@@ -75,6 +100,11 @@
         // 初始化
         _wkWebView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config] ;
         _wkWebView.UIDelegate = self; _wkWebView.navigationDelegate = self;
+        if (@available(iOS 16.4, *)) {
+            [_wkWebView setInspectable:YES];
+        } else {
+            // Fallback on earlier versions
+        }
         [self.view addSubview:_wkWebView];
         [_wkWebView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.offset(navc_bar_h);
@@ -142,11 +172,16 @@
 //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:webView.URL];
 //    [request addValue:cookieValue forHTTPHeaderField:@"Cookie"];
     
-    
+
     NSString * urlString = navigationAction.request.URL.absoluteString;
-    C_LOG(@"将要开始加载的链接或参数: %@",urlString)
-        
-    decisionHandler(WKNavigationActionPolicyAllow);
+    
+//    if([urlString containsString:@"https://wufangdao"]){
+        C_LOG(@"将要开始加载的链接: %@",urlString)
+        decisionHandler(WKNavigationActionPolicyAllow);
+//    }else{
+//        decisionHandler(WKNavigationActionPolicyCancel);
+//    }
+    
     
 //    if ([urlString hasPrefix:@"http"]) {  // 允许跳转
 //        decisionHandler(WKNavigationActionPolicyAllow);
@@ -200,25 +235,61 @@
     
 //    NSString *appVersionJS = [NSString stringWithFormat:@"function akb_appVersion() { return '%@' } ",app_version];
 //
-    NSString *jsCodeString = @"";
-    jsCodeString = [NSString stringWithFormat:@"var akb_appVersion = '%@' ", app_version];
-    
-    [webView evaluateJavaScript:jsCodeString completionHandler:^(id _Nullable htmlStr, NSError * _Nullable error) {
-        if (htmlStr) {
-            NSLog(@"js执行后获取到的内容：\n%@",htmlStr);
-        } else if (error) {
-            NSLog(@"js执行错误：\n%@",error);
-        } else {
-            NSLog(@"其它。。。");
-        }
-    }];
+//    NSString *jsCodeString = @"var bookTitle = document.getElementsByClassName('title')[0].textContent; var books = document.getElementById(\"content\").textContent; return bookTitle+\"\n\"+books;";
+    NSString *jsCodeString = @"document.getElementsByClassName('title')[0].textContent";
+    NSString *jsContenttring = @"document.getElementById(\"content\").textContent;";
+
+//    [webView evaluateJavaScript:jsCodeString completionHandler:^(id _Nullable bookTitle, NSError * _Nullable error) {
+//        if (bookTitle) {
+//            [webView evaluateJavaScript:jsContenttring completionHandler:^(id _Nullable bookContent, NSError * _Nullable error) {
+//                C_LOG(@"%@",bookTitle);
+////                C_LOG(@"%@",bookContent);
+//                [self appendTextToFile:FORMATSTR(@"\n%@\n%@",bookTitle, bookContent)];
+//                
+//                [self loadContent];
+//            }];
+//        } else if (error) {
+//            C_LOG(@"js执行错误：\n%@",error);
+//        } else {
+//            C_LOG(@"其它。。。");
+//        }
+//    }];
     
 }
+
+
+-(void)appendTextToFile:(NSString *)textToAppend {
+//    NSFileManager *fileManager = [NSFileManager defaultManager];
+//    NSURL *documentsDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
+//    
+//    if (documentsDirectory == nil) {
+//        NSLog(@"Unable to access documents directory.");
+//        return;
+//    }
+//    
+//    NSURL *fileURL = [documentsDirectory URLByAppendingPathComponent:@"myFile.txt"];
+//        
+//    NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:fileURL.path];
+//    
+//    if (fileHandle == nil) {
+//        NSLog(@"Unable to open file for appending.");
+//        return;
+//    }
+    
+    [_fileHandle seekToEndOfFile];
+    [_fileHandle writeData:[textToAppend dataUsingEncoding:NSUTF8StringEncoding]];
+//    [fileHandle closeFile];
+    
+//    NSLog(@"Text appended successfully.");
+}
+
+
+
 // 接收到需要重定向请求
 - (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(null_unspecified WKNavigation *)navigation{
     C_LOG(@"接收到需要重定向的要求。。。")
 }
-//加载失败时执行
+// 加载失败时执行
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error{
     C_LOG(@"ProvisionalNavigation失败:\n\n%@\n\n%@",navigation,error)
 }
@@ -246,14 +317,13 @@
 -(void)clickTest{
     NSString *callJS = @"testMyFunction(\"哇哇哇哇哈哈哈哈哈哈哈，测试测试\")";
     [_wkWebView evaluateJavaScript:callJS completionHandler:^(id _Nullable response, NSError * _Nullable error) {
-        NSLog(@"response -> %@  error -> %@",response,error);
+        C_LOG(@"response -> %@  error -> %@",response,error);
     }];
-
 }
 
 
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
-    NSLog(@"%@",message.name);
+    C_LOG(@"%@",message.name);
     [self clickClose];
 }
 

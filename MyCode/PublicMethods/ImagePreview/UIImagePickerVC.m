@@ -101,6 +101,9 @@
         NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
         if ([type isEqualToString:@"public.image"]) {
             UIImage * image = [info objectForKey:UIImagePickerControllerEditedImage];
+            [_imagePickerController dismissViewControllerAnimated:YES completion:^{
+                _selectImgBlock(image);
+            }];
             UIImageWriteToSavedPhotosAlbum(image, self,@selector(image:didFinishSavingWithError:contextInfo:),nil);
         }
     }else{
@@ -125,10 +128,10 @@
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
     if (!error) {
-        [_imagePickerController dismissViewControllerAnimated:YES completion:^{
-//            [self changeUIBarButtonItem];
-            _selectImgBlock(image);
-        }];
+//        [_imagePickerController dismissViewControllerAnimated:YES completion:^{
+////            [self changeUIBarButtonItem];
+//            _selectImgBlock(image);
+//        }];
     }
 }
 
